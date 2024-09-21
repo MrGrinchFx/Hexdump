@@ -51,16 +51,15 @@ fn main() {
         for _ in 0..(16 - chunk.len()) {
             print!("   "); // Pad with spaces
         }
-        // print!("| ");
-        // for byte in chunk {
-        //     if *byte >= 32 && *byte <= 126 {
-        //         print!("{}", *byte as char);
-        //     } else {
-        //         print!(".");
-        //     }
-        // }
-        // println!(" |");
-        println!(" ");
+        print!("| ");
+        for byte in chunk {
+            if *byte >= 32 && *byte <= 126 {
+                print!("{}", *byte as char);
+            } else {
+                print!(".");
+            }
+        }
+        println!(" |");
         offset += chunk.len();
     }
 }
