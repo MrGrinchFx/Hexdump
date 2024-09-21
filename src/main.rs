@@ -15,34 +15,18 @@ fn main() {
         process::exit(1);
     }
 
-    let size: usize = match args[2].parse() {
-        Ok(n) => n,
-        Err(_) => {
-            println!("Invalid length");
-            process::exit(1);
-        }
-    };
+    let size: usize =  args[2].parse().expect("error in size");
 
     let file_name: String = args[3].clone();
 
-    let mut file: File = match File::open(file_name) {
-        Ok(file) => file,
-        Err(_) => {
-            println!("Error opening file");
-            return;
-        }
-    };
+    let mut file: File = File::open(file_name).expect("error in opening file");
 
     let mut contents = Vec::new();
-    match file.read_to_end(&mut contents) {
-        Ok(_) => (),
-        Err(_) => {
-            println!("Error reading file");
-            return;
-        }
-    }
+    file.read_to_end(&mut contents).expect("error in reading file"); 
     let size = contents.len().min(size);
+    
     let mut offset: usize = 0;
+    
     for chunk in contents[..size].chunks(16) {
         print!("{:08x}  ", offset); 
         for byte in chunk {
