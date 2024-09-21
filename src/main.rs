@@ -46,7 +46,7 @@ fn main() {
     for chunk in contents[..size].chunks(16) {
         print!("{:08x}  ", offset); 
         for byte in chunk {
-            print!("{:04x} ", byte);
+            print!("{:02x} ", byte);
         }
         for _ in 0..(16 - chunk.len()) {
             print!("   "); 
