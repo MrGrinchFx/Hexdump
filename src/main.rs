@@ -41,15 +41,15 @@ fn main() {
             return;
         }
     }
-
+    let size = contents.len().min(size);
     let mut offset: usize = 0;
     for chunk in contents[..size].chunks(16) {
-        print!("{:08x}  ", offset); // Start from 0x000
+        print!("{:08x}  ", offset); 
         for byte in chunk {
-            print!("{:02x} ", byte);
+            print!("{:04x} ", byte);
         }
         for _ in 0..(16 - chunk.len()) {
-            print!("   "); // Pad with spaces
+            print!("   "); 
         }
         print!("| ");
         for byte in chunk {
