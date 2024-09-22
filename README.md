@@ -16,13 +16,13 @@ Result:
     let file_name: String = args[3].clone();
     let mut file: File = File::open(file_name).expect("error in opening file");
    ```
-3) Opened the File and extracted the bytes using the ```read_to_end()``` method in the std::fs::file module.
+2) Opened the File and extracted the bytes using the ```read_to_end()``` method in the std::fs::file module.
    ```
    let mut contents = Vec::new();
     file.read_to_end(&mut contents).expect("error in reading file"); 
     let size = contents.len().min(size);
    ```
-5) Printed out the current offset of the memory and printed the byte values of the current offset.
+3) Printed out the current offset of the memory and printed the byte values of the current offset.
 ```
    let mut offset: usize = 0;
    for chunk in contents[..size].chunks(16) {
@@ -36,7 +36,7 @@ Result:
         offset += chunk.len();
     }
 ```
-7) Printed out the char representation of each Word. (extra)
+4) Printed out the char representation of each Word. (extra)
 ```
 print!("| ");
         for byte in chunk {
