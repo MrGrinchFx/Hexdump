@@ -1,6 +1,19 @@
+Build Instructions:
+1) Clone the Repo
+2) Run command ```cargo install --path . ```
+3) Run the program using ```hexdump [-n LEN] FILENAME```
+
 Command Used: ```hexdump -n 256 main.exe```
+
+![image](https://github.com/user-attachments/assets/54669720-51e1-43c0-a689-db151af58369)
+
 Result:
 ![image](https://github.com/user-attachments/assets/f1106e97-da88-413f-9a90-64d4dcc992b9)
+
+Command Used: ``` hexdump -n 256 hello.txt ```
+
+Result: 
+
 
 1) First handled the command line arguments making sure that there were enough arguments and error handling if there were to be any.
    ```
